@@ -7,28 +7,33 @@
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
   <!-- Hero Section -->
-  <section id="hero">
-  <div class="hero-left">
-    <h1>EXPLORE MY CERTIFICATIONS</h1>
-    <p>Over 50+ Webinar & Masterclass</p>
-    <button id="explore-btn">EXPLORE</button>
+  <div id="hero">
+    <div class="hero-left">
+      <h1>
+        <span class="explore">EXPLORE</span>
+        <span class="certification">CERTIFICATION</span>
+      </h1>
+      <p>Yahan tera description hoga jaise skills, workshops, ya certificates.</p>
+    </div>
+    <div class="hero-right">
+      <img class="logo" src="logo.png" alt="Profile Logo">
+    </div>
   </div>
-  <div class="hero-right">
-    <img src="images/Logo.png" alt="Logo" class="logo">
+
+  <!-- Cards Section -->
+  <div class="cards-container">
+    <div class="card">
+      <img src="certificate1.png" alt="Certificate">
+      <h3>Workshop Name</h3>
+      <p>Description of workshop, skill or certificate.</p>
+      <button>View Certificate</button>
+    </div>
+    <!-- Repeat cards as needed -->
   </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section id="certifications" style="display:none;">
-    <!-- JS will dynamically generate cards here -->
-  </section>
-
-  <script src="data.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
