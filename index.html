@@ -6,7 +6,6 @@
   <title>CertifyHub</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <!-- HERO SECTION -->
@@ -29,25 +28,17 @@
 
   <!-- CARDS SECTION -->
   <section id="certifications">
-
-  <div class="slider-container">
-
-    <button class="arrow left" id="prevBtn">&#10094;</button>
-
-    <div class="slider-track" id="sliderTrack">
-      <!-- Cards will load here -->
+    <div class="slider-container">
+      <button class="arrow left">&#10094;</button>
+      <div class="slider-track" id="cardsContainer">
+        <!-- Cards will load from JS -->
+      </div>
+      <button class="arrow right">&#10095;</button>
     </div>
-
-    <button class="arrow right" id="nextBtn">&#10095;</button>
-
-  </div>
-
   </section>
 
   <!-- JS -->
   <script src="data.js"></script>
   <script src="script.js" defer></script>
-
 </body>
 </html>
-
