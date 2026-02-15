@@ -13,50 +13,59 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 80px 10%;
+  min-height: 100vh;
 }
 
+/* LEFT SIDE */
+.hero-left {
+  flex: 1;
+}
 
 .hero-left h1 {
+  font-size: 2.8rem;   /* Smaller text */
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.explore {
   font-weight: 700;
 }
 
-.hero-left h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.explore-text {
-  background: linear-gradient(90deg, #00f5ff, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.certification-text {
-  color: #ff2ea6;
+.certification {
+  font-weight: 700;
 }
 
 .hero-left p {
-  margin-top: 1rem;
-  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
-/* EXPLORE BUTTON */
+/* BUTTON */
 #exploreBtn {
-  margin-top: 2rem;
-  padding: 12px 30px;
+  padding: 10px 20px;
   font-size: 1rem;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  background: linear-gradient(90deg, #00f5ff, #a855f7);
+  background: #007bff;
   color: white;
-  transition: 0.4s;
-  box-shadow: 0 0 20px #a855f7;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 #exploreBtn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 30px #00f5ff;
+  background: #0056b3;
+}
+
+/* RIGHT SIDE */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
 }
 
 /* LOGO */
@@ -122,4 +131,5 @@ body {
   background: #00f5ff;
   color: black;
 }
+
 
