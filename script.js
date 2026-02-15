@@ -1,28 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   const exploreBtn = document.getElementById("exploreBtn");
   const cardsContainer = document.getElementById("cardsContainer");
-  const leftArrow = document.querySelector(".arrow.left");
-  const rightArrow = document.querySelector(".arrow.right");
-  let currentIndex = 0;
 
-  // Create cards
-  function loadCards() {
-    cardsContainer.innerHTML = "";
-    certifications.forEach((cert, index) => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-      if(index===0) card.classList.add("active");
-      card.innerHTML = `
-        <img src="${cert.image}" alt="Certificate">
-        <h3>${cert.title}</h3>
-        <p>${cert.description}</p>
-        <button onclick="window.open('${cert.pdf||cert.image}','_blank')">View Certificate</button>
-      `;
-      cardsContainer.appendChild(card);
-    });
-  }
-
+  exploreBtn.addEventListener("click", function () {
+    if (!cardsContainer.classList.contains("show")) {
+      cardsContainer.innerHTML = ""; // clear old cards
+      certifications.forEach(function (cert) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+          <img src="${cert.image}" alt="Certificate">
+          <h3>${cert.title}</h3>
+          <p>${cert.description}</p>
+          <button>View Certificate</button>
+        `;
+        cardsContainer.appendChild(card);
+      });
+      cardsContainer.classList.add("show"); // cards visible
+      setTimeout(() => {
+        cardsContainer.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  });
+});
   loadCards();
 
   exploreBtn.addEventListener("click", function () {
@@ -50,3 +50,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
