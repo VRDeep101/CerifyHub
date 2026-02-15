@@ -6,9 +6,10 @@ const certifications = [
     pdf: "images/be10X.pdf"
   },
   {
-    title: "Cyber Security Webinar",
-    description: "Ethical hacking fundamentals.",
-    image: "images/certificate2.png",
-    pdf: "images/certificate2.pdf"
+    title: "Cyber Security",
+    description: "Completed a Cyber Security Workshop using Kali Linux – gained hands-on experience in basic ethical hacking, network analysis, and vulnerability assessment.",
+    image: "images/TUAcybersecuruty.jpg",
+    pdf: "images/TUAcybersecuruty.pdf"
   }
 ];
+
