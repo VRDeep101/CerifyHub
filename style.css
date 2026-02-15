@@ -8,11 +8,9 @@ body {
 }
 
 /* HERO SECTION */
-#hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 80px 10%;
+#hero h1 {
+  font-size: 3rem;
+  line-height: 1.2;
 }
 
 .hero-left h1 {
