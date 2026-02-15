@@ -14,10 +14,10 @@ A personal certification showcase platform to display skills, workshops, and ach
 
 ---
 
-## 📜 Certifications Included
+## Certifications
 
-- 🤖 AI Workshop – Learned 15+ AI tools for productivity and automation  
-- 🔐 Cyber Security Workshop – Hands-on experience with Kali Linux, ethical hacking basics, and network analysis  
+CertifyHUB showcases certificates earned through multiple workshops, masterclasses, and professional training sessions.  
+The goal is to represent continuous learning, practical skill-building, and growth across diverse domains.
 
 ---
 
