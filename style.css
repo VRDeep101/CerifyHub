@@ -16,13 +16,30 @@ body {
   min-height: 100vh;
 }
 
-.hero-left { flex: 1; }
-.hero-left h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
-.explore { font-weight: 800; color: #00f5ff; text-shadow: 0 0 5px #00f5ff,0 0 20px #00f5ff; animation: glowPulse 2.5s infinite ease-in-out; }
-.certification { font-weight: 800; color: #ff2ea6; text-shadow: 0 0 5px #ff2ea6,0 0 20px #ff2ea6; animation: glowPulse 2.5s infinite ease-in-out; }
-@keyframes glowPulse { 0%,100%{ text-shadow:0 0 5px currentColor,0 0 20px currentColor; } 50%{ text-shadow:0 0 25px currentColor,0 0 50px currentColor; } }
+.hero-left {
+  flex: 1;
+}
 
-.hero-left p { font-size: 1rem; opacity: 0.8; margin-bottom: 20px; }
+.hero-left h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.explore {
+  color: #00f5ff;
+  font-weight: 700;
+}
+
+.certification {
+  color: #ff2ea6;
+  font-weight: 700;
+}
+
+.hero-left p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
 
 #exploreBtn {
   padding: 10px 22px;
@@ -34,32 +51,105 @@ body {
   cursor: pointer;
   transition: 0.3s ease;
 }
-#exploreBtn:hover { background: #00f5ff; color: black; box-shadow: 0 0 20px #00f5ff; }
 
-.hero-right { flex: 1; display: flex; justify-content: flex-end; }
-.logo { max-width: 180px; width: 100%; height: auto; object-fit: contain; }
+#exploreBtn:hover {
+  background: #00f5ff;
+  color: black;
+}
 
-/* CERTIFICATION SLIDER */
-.slider-container { position: relative; overflow: hidden; width: 100%; padding: 2rem 0; }
-.slider-track { display: flex; transition: transform 0.6s ease; justify-content: center; align-items: center; }
-.slider-track .card { min-width: 260px; margin: 0 15px; transform: scale(0.8); opacity: 0.6; transition: 0.5s ease; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 1.5rem; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 0 20px #a855f7; }
-.slider-track .card.active { transform: scale(1); opacity: 1; }
-.slider-track .card img { width: 100%; border-radius: 10px; }
-.slider-track .card h3 { color: #ff2ea6; margin: 0.5rem 0; }
-.slider-track .card p { font-size: 0.9rem; opacity: 0.8; }
-.slider-track .card button, .slider-track .card a { margin-top: 1rem; padding: 8px 18px; border: none; border-radius: 20px; cursor: pointer; background: #00f5ff; color: black; text-decoration: none; transition: 0.3s ease; }
-.slider-track .card button:hover, .slider-track .card a:hover { background: #ff2ea6; color: white; }
+/* HERO RIGHT LOGO */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
 
-/* ARROWS */
-.arrow { position: absolute; top: 50%; transform: translateY(-50%); background: #00f5ff; border: none; padding: 10px 15px; cursor: pointer; border-radius: 50%; font-size: 20px; z-index: 10; transition: 0.3s; }
-.arrow:hover { background: #ff2ea6; color: white; }
-.arrow.left { left: 10px; }
-.arrow.right { right: 10px; }
+.logo {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* CARDS SECTION */
+#certifications {
+  padding: 4rem 2rem;
+}
+
+.cards-container {
+  display: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.cards-container.show {
+  display: flex;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 260px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px #a855f7;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px #00f5ff;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: #ff2ea6;
+}
+
+.card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.card button {
+  margin-top: 1rem;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #00f5ff;
+  color: black;
+  transition: 0.3s ease;
+}
+
+.card button:hover {
+  background: #ff2ea6;
+  color: white;
+}
 
 /* RESPONSIVE */
-@media(max-width:768px){
-  #hero { flex-direction: column; text-align: center; }
-  .hero-right { justify-content: center; margin-top: 30px; }
-  .logo { max-width: 140px; }
-  .hero-left h1 { font-size: 2rem; }
+@media (max-width: 768px) {
+  #hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-right {
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .logo {
+    max-width: 140px;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem;
+  }
 }
