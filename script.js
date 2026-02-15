@@ -1,28 +1,28 @@
-const certSection = document.getElementById('certifications');
-const exploreBtn = document.getElementById('explore-btn');
+const exploreBtn = document.getElementById("exploreBtn");
+const cardsContainer = document.getElementById("cardsContainer");
 
-// Show section on button click
-exploreBtn.addEventListener('click', () => {
-  certSection.style.display = 'grid'; // grid layout
-  certSection.scrollIntoView({ behavior: 'smooth' });
-});
+function loadCards() {
+  certifications.forEach(cert => {
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-// Generate cards
-certificates.forEach(cert => {
-  const card = document.createElement('div');
-  card.classList.add('card');
-
-  card.innerHTML = `
-    <div class="left">
+    card.innerHTML = `
       <img src="${cert.image}" alt="Certificate">
-    </div>
-    <div class="right">
       <h3>${cert.title}</h3>
       <p>${cert.description}</p>
-      <span>${cert.date}</span>
-      <button class="view-full">View Full</button>
-    </div>
-  `;
+      <button>View Certificate</button>
+    `;
 
-  certSection.appendChild(card);
+    cardsContainer.appendChild(card);
+  });
+}
+
+exploreBtn.addEventListener("click", () => {
+
+  if (!cardsContainer.classList.contains("show")) {
+    loadCards();
+    cardsContainer.classList.add("show");
+    cardsContainer.scrollIntoView({ behavior: "smooth" });
+  }
+
 });
