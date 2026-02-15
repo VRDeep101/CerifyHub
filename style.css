@@ -16,8 +16,10 @@ body {
   padding: 80px 10%;
   min-height: 100vh;
 
-  /* Background Image */
-  background: url('images/Bg_Interface.jpeg') center/cover no-repeat;
+  background-image: url('images/Bg_Interface.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -228,3 +230,4 @@ body {
     font-size: 2.2rem;
   }
 }
+
