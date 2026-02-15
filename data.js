@@ -6,7 +6,7 @@ const certifications = [
   },
   {
     title: "Cyber Security Webinar",
-    description: "Ethical hacking & security fundamentals.",
+    description: "Ethical hacking fundamentals.",
     image: "images/certificate2.png"
   }
 ];
