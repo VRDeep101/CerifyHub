@@ -1,146 +1,196 @@
-/* --- Global --- */
-body {
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700&display=swap');
+
+
+* {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #0f0f1f; /* deep dark purple / black */
-  color: #e0e0e0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* --- Hero Section --- */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #050505; /* deep matte black */
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  background: rgba(10,10,10,0.4);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+header .logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  color: #A855F7; /* neon purple */
+  text-shadow: 0 0 10px #A855F7, 0 0 20px #06B6D4;
+}
+
+header nav a {
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+header nav a:hover {
+  color: #EC4899; /* neon pink */
+  text-shadow: 0 0 8px #EC4899;
+}
+
+
 #hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  background: linear-gradient(135deg, #1a0f2f, #0f0f1f);
+  padding: 8rem 5%;
+  min-height: 90vh;
 }
 
+/* LEFT SIDE */
 .hero-left h1 {
-  font-size: 2.5rem;
-  color: #c288ff; /* soft neon purple */
-  text-shadow: 0 0 10px #c288ff;
+  font-family: 'Syne', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-left h1 span.explore {
+  background: linear-gradient(90deg, #06B6D4, #00fff7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-left h1 span.certification {
+  color: #EC4899; /* neon pink */
+  text-shadow: 0 0 15px #EC4899, 0 0 25px #A855F7;
 }
 
 .hero-left p {
+  color: #ffffffcc;
   font-size: 1.1rem;
-  color: #ffffffaa;
+  max-width: 450px;
+  margin-bottom: 1.5rem;
 }
 
 #explore-btn {
-  padding: 0.7rem 1.5rem;
+  padding: 0.8rem 2rem;
   font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #ff2d95, #00fff7); /* pink neon + cyan */
+  font-weight: 600;
+  border: 2px solid #A855F7;
+  border-radius: 12px;
+  background: transparent;
   color: #fff;
   cursor: pointer;
-  transition: 0.3s all;
-  box-shadow: 0 0 10px #ff2d9540, 0 0 15px #00fff740;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px #A855F7;
 }
 
 #explore-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff2d95, 0 0 20px #00fff7;
+  background: #06B6D4;
+  color: #000;
+  box-shadow: 0 0 20px #06B6D4, 0 0 25px #A855F7;
 }
 
-/* --- Hero Right (Logo) --- */
-.hero-right img.logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #c288ff;
-  box-shadow: 0 0 15px #ff2d95, 0 0 15px #00fff7;
-}
-
-/* --- Certifications Section --- */
-#certifications {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-}
-
-/* --- Card Design --- */
-.card {
+/* RIGHT SIDE - PROFILE IMAGE */
+.hero-right {
+  position: relative;
   display: flex;
-  background: #1a0f2f; /* dark purple */
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 0 15px #c288ff40;
-  transition: 0.3s all;
+  justify-content: center;
+  align-items: center;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px #ff2d9540, 0 0 25px #00fff740, 0 0 25px #c288ff50;
-}
-
-.card .left img {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 2px solid #ff2d95;
-  box-shadow: 0 0 10px #ff2d95, 0 0 10px #00fff7;
-}
-
-.card .right h3 {
-  margin: 0;
-  color: #ff2d95; /* neon pink */
-  text-shadow: 0 0 5px #ff2d95;
-}
-
-.card .right p {
-  font-size: 0.9rem;
-  color: #00fff7aa; /* neon cyan / light */
-}
-
-.card .right span {
-  font-size: 0.8rem;
-  color: #c288ff; /* soft purple neon */
-}
-
-/* --- View Full Button --- */
-.card .right button.view-full {
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-  border: none;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #ff2d95, #00fff7);
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s all;
-}
-
-.card .right button.view-full:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #ff2d95, 0 0 20px #00fff7;
-}
-
-.hero-left h1 {
-  font-size: 2.5rem;
-  color: #c288ff; /* soft neon purple */
-  text-shadow: 0 0 10px #c288ff;
-  text-transform: uppercase; /* force all uppercase */
-  font-family: 'Poppins', sans-serif; /* nice font */
-}
 .hero-right img.logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;          /* circular */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #c288ff;   /* soft purple border */
-  box-shadow: 
-    0 0 15px #ff2d95,          /* pink glow */
-    0 0 20px #00fff7;          /* cyan glow */
+  border: 4px solid #A855F7;
+  box-shadow:
+    0 0 15px #06B6D4,
+    0 0 20px #EC4899,
+    0 0 30px #A855F7;
   transition: 0.3s all;
+  z-index: 2;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.2), rgba(6,182,212,0.1));
+  filter: blur(40px);
+  z-index: 1;
 }
 
 .hero-right img.logo:hover {
   transform: scale(1.05);
   box-shadow:
-    0 0 25px #ff2d95,
-    0 0 25px #00fff7,
-    0 0 30px #c288ff;
+    0 0 25px #06B6D4,
+    0 0 25px #EC4899,
+    0 0 35px #A855F7;
+}
+
+
+.explore-card {
+  background: rgba(10,10,10,0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 2px solid #A855F7;
+  box-shadow: 0 0 10px #06B6D4, 0 0 15px #EC4899;
+  padding: 20px;
+  margin: 20px 0;
+  transition: all 0.3s;
+}
+
+.explore-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #06B6D4, 0 0 25px #EC4899, 0 0 20px #A855F7;
+}
+
+.explore-card h2 {
+  font-family: 'Syne', sans-serif;
+  color: #A855F7;
+  margin-bottom: 10px;
+}
+
+.explore-card p {
+  color: #ffffffcc;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+button, .btn {
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: 0.3s all;
+}
+
+button:hover, .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #06B6D4, 0 0 20px #EC4899, 0 0 20px #A855F7;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #ffffff88;
+  font-size: 0.9rem;
 }
