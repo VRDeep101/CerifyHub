@@ -15,12 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const card = document.createElement("div");
         card.classList.add("card");
 
-        card.innerHTML = `
-          <img src="${cert.image}" alt="Certificate">
-          <h3>${cert.title}</h3>
-          <p>${cert.description}</p>
-          <button>View Certificate</button>
-        `;
+       card.innerHTML = `
+  <img src="${cert.image}" alt="Certificate">
+  <h3>${cert.title}</h3>
+  <p>${cert.description}</p>
+  <button>View Certificate</button>
+`;
+        
 
         cardsContainer.appendChild(card);
       });
