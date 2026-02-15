@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CertifyHub</title>
- <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Hero Section -->
@@ -14,7 +14,7 @@
         <span class="explore">EXPLORE</span>
         <span class="certification">CERTIFICATION</span>
       </h1>
-      <p>Yahan tera description hoga jaise skills, workshops, ya certificates.</p>
+      <p>Over 50+ Webinar & Workshops</p>
     </div>
     <div class="hero-right">
       <img class="logo" src="logo.png" alt="Profile Logo">
@@ -25,17 +25,33 @@
   <div class="cards-container">
     <div class="card">
       <img src="certificate1.png" alt="Certificate">
-      <h3>Workshop Name</h3>
-      <p>Description of workshop, skill or certificate.</p>
+      <h3>Workshop Name 1</h3>
+      <p>Description of workshop, skill, or certificate.</p>
       <button>View Certificate</button>
     </div>
-    <!-- Repeat cards as needed -->
+    <div class="card">
+      <img src="certificate2.png" alt="Certificate">
+      <h3>Workshop Name 2</h3>
+      <p>Description of workshop, skill, or certificate.</p>
+      <button>View Certificate</button>
+    </div>
+    <!-- Add more cards here -->
   </div>
+
+  <!-- JS for EXPLORE click -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const exploreBtn = document.querySelector(".explore");
+      const cards = document.querySelector(".cards-container");
+
+      exploreBtn.addEventListener("click", () => {
+        cards.classList.toggle("show");
+        // optional: scroll to cards
+        if (cards.classList.contains("show")) {
+          cards.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
