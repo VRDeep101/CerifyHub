@@ -70,11 +70,11 @@ body {
 
 /* LOGO */
 .logo {
-  width: 170px;
-  border-radius: 50%;
-  box-shadow: 0 0 30px #00f5ff, 0 0 40px #ff2ea6;
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
-
 /* CERTIFICATIONS SECTION */
 #certifications {
   padding: 4rem 2rem;
@@ -142,5 +142,7 @@ body {
     margin-top: 30px;
   }
 }
+
+
 
 
