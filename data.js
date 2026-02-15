@@ -1,14 +1,12 @@
-const certificates = [
+const certifications = [
   {
-    title: "AI Workshop",
-    description: "Learned ML basics and practical AI applications.",
-    date: "Aug 2025",
-    image: "images/ai.jpg"
+    title: "Web Development Workshop",
+    description: "Advanced HTML, CSS & JavaScript concepts.",
+    image: "images/certificate1.png"
   },
   {
-    title: "Frontend Bootcamp",
-    description: "React & UI development workshop.",
-    date: "Sept 2025",
-    image: "images/frontend.jpg"
+    title: "Cyber Security Webinar",
+    description: "Ethical hacking & security fundamentals.",
+    image: "images/certificate2.png"
   }
 ];
