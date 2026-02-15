@@ -1,4 +1,4 @@
-/* GLOBAL */
+/* ================= GLOBAL ================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -7,7 +7,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* HERO SECTION */
+/* ================= HERO SECTION ================= */
 #hero {
   display: flex;
   justify-content: space-between;
@@ -22,38 +22,67 @@ body {
 }
 
 .hero-left h1 {
-  font-size: 2.8rem;   /* Smaller text */
+  font-size: 2.8rem;
   line-height: 1.2;
   margin-bottom: 20px;
 }
 
+/* NEON TEXT */
 .explore {
-  font-weight: 700;
+  font-weight: 800;
+  color: #00f5ff;
+  text-shadow:
+    0 0 5px #00f5ff,
+    0 0 10px #00f5ff,
+    0 0 20px #00f5ff,
+    0 0 40px rgba(0, 245, 255, 0.6);
 }
 
 .certification {
-  font-weight: 700;
+  font-weight: 800;
+  color: #ff2ea6;
+  text-shadow:
+    0 0 5px #ff2ea6,
+    0 0 10px #ff2ea6,
+    0 0 20px #ff2ea6,
+    0 0 40px rgba(255, 46, 166, 0.6);
 }
 
+/* Glow Animation */
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+  50% { text-shadow: 0 0 25px currentColor, 0 0 50px currentColor; }
+  100% { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+}
+
+.explore,
+.certification {
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+/* Paragraph */
 .hero-left p {
   font-size: 1.1rem;
   margin-bottom: 20px;
+  opacity: 0.8;
 }
 
 /* BUTTON */
 #exploreBtn {
-  padding: 10px 20px;
+  padding: 10px 22px;
   font-size: 1rem;
   background: #007bff;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 #exploreBtn:hover {
-  background: #0056b3;
+  background: #00f5ff;
+  color: black;
+  box-shadow: 0 0 20px #00f5ff;
 }
 
 /* RIGHT SIDE */
@@ -64,23 +93,18 @@ body {
 }
 
 .logo {
-  width: 180px;
-  height: auto;
-}
-
-/* LOGO */
-.logo {
   max-width: 180px;
   width: 100%;
   height: auto;
   object-fit: contain;
 }
-/* CERTIFICATIONS SECTION */
+
+/* ================= CERTIFICATIONS SECTION ================= */
 #certifications {
   padding: 4rem 2rem;
 }
 
-/* CARDS */
+/* CARDS CONTAINER */
 .cards-container {
   display: none;
   justify-content: center;
@@ -97,15 +121,16 @@ body {
   transform: translateY(0);
 }
 
+/* CARD DESIGN */
 .card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   padding: 1.5rem;
   width: 260px;
   text-align: center;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 20px #a855f7;
-  transition: 0.4s;
+  transition: 0.4s ease;
 }
 
 .card:hover {
@@ -122,16 +147,35 @@ body {
   color: #ff2ea6;
 }
 
+.card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* View Button */
+.card a,
 .card button {
+  display: inline-block;
   margin-top: 1rem;
-  padding: 8px 15px;
+  padding: 8px 18px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   background: #00f5ff;
   color: black;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
+
+.card a:hover,
+.card button:hover {
+  background: #ff2ea6;
+  color: white;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
+
   #hero {
     flex-direction: column;
     text-align: center;
@@ -141,8 +185,12 @@ body {
     justify-content: center;
     margin-top: 30px;
   }
+
+  .logo {
+    max-width: 140px;
+  }
+
+  .hero-left h1 {
+    font-size: 2.2rem;
+  }
 }
-
-
-
-
