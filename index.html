@@ -7,52 +7,34 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hero Section -->
-  <div id="hero">
+
+  <!-- HERO SECTION -->
+  <section id="hero">
     <div class="hero-left">
       <h1>
-        <span class="explore">EXPLORE</span>
-        <span class="certification">CERTIFICATION</span>
+        <span class="explore-text">EXPLORE</span>
+        <span class="certification-text">CERTIFICATION</span>
       </h1>
       <p>Over 50+ Webinar & Workshops</p>
+
+      <!-- EXPLORE BUTTON -->
+      <button id="exploreBtn">Explore Now</button>
     </div>
+
     <div class="hero-right">
-      <img class="logo" src="Logo.png" alt="Profile Logo">
+      <img src="images/logo.png" class="logo" alt="Profile Logo">
     </div>
-  </div>
+  </section>
 
-  <!-- Cards Section -->
-  <div class="cards-container">
-    <div class="card">
-      <img src="certificate1.png" alt="Certificate">
-      <h3>Workshop Name 1</h3>
-      <p>Description of workshop, skill, or certificate.</p>
-      <button>View Certificate</button>
+  <!-- CARDS SECTION -->
+  <section id="certifications">
+    <div class="cards-container" id="cardsContainer">
+      <!-- Cards will load from JS -->
     </div>
-    <div class="card">
-      <img src="certificate2.png" alt="Certificate">
-      <h3>Workshop Name 2</h3>
-      <p>Description of workshop, skill, or certificate.</p>
-      <button>View Certificate</button>
-    </div>
-    <!-- Add more cards here -->
-  </div>
+  </section>
 
-  <!-- JS for EXPLORE click -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const exploreBtn = document.querySelector(".explore");
-      const cards = document.querySelector(".cards-container");
-
-      exploreBtn.addEventListener("click", () => {
-        cards.classList.toggle("show");
-        // optional: scroll to cards
-        if (cards.classList.contains("show")) {
-          cards.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-    });
-  </script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 
