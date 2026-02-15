@@ -8,10 +8,13 @@ body {
 }
 
 /* HERO SECTION */
-#hero h1 {
-  font-size: 3rem;
-  line-height: 1.2;
+#hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 10%;
 }
+
 
 .hero-left h1 {
   font-weight: 700;
@@ -119,3 +122,4 @@ body {
   background: #00f5ff;
   color: black;
 }
+
