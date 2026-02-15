@@ -1,8 +1,8 @@
 const certifications = [
   {
-    title: "Web Development Workshop",
-    description: "Advanced HTML, CSS & JavaScript concepts.",
-    image: "images/certificate1.png"
+    title: "Be10X AI Tools Workshop",
+    description: "Completed the Be10X AI Workshop, where I learned 15+ AI tools focused on productivity, automation, and workflow optimization.",
+    image: "images/be10X.pdf"
   },
   {
     title: "Cyber Security Webinar",
@@ -10,3 +10,4 @@ const certifications = [
     image: "images/certificate2.png"
   }
 ];
+
