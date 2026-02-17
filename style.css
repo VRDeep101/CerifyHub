@@ -8,62 +8,79 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #0f2027, #000814);
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+    url("images/bg.jpg");   /* 👈 apna image path daal */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   overflow-x: hidden;
 }
 
-/* ================= HERO / PROFILE ================= */
+/* ================= HERO SECTION ================= */
 
 .hero {
   text-align: center;
   padding: 80px 20px 40px;
 }
 
-.logo {
-  width: 170px;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 20px;
-  box-shadow:
-    0 0 25px #00f5ff,
-    0 0 60px rgba(0,245,255,0.6);
-  transition: 0.3s ease;
-}
-
 .hero h1 {
-  font-size: 28px;
+  font-size: 30px;
   margin-bottom: 10px;
+  text-shadow:
+    0 0 12px #00f5ff,
+    0 0 30px rgba(0,245,255,0.8);
 }
 
 .hero p {
-  opacity: 0.8;
+  opacity: 0.85;
   margin-bottom: 20px;
 }
 
 #exploreBtn {
-  padding: 10px 22px;
-  border-radius: 25px;
+  padding: 12px 25px;
+  border-radius: 30px;
   border: none;
   cursor: pointer;
   background: #00f5ff;
   font-weight: 600;
+  font-size: 15px;
   transition: 0.3s;
+  box-shadow:
+    0 0 15px #00f5ff,
+    0 0 40px rgba(0,245,255,0.6);
 }
 
 #exploreBtn:hover {
   background: #ff2ea6;
   color: white;
+  box-shadow:
+    0 0 15px #ff2ea6,
+    0 0 40px rgba(255,46,166,0.7);
 }
 
-/* ================= CERTIFICATION SECTION ================= */
+/* ================= PROFILE LOGO ================= */
+
+.logo {
+  width: 170px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 40px;   /* 👈 niche space */
+  box-shadow:
+    0 0 30px #00f5ff,
+    0 0 70px rgba(0,245,255,0.7);
+  transition: 0.3s ease;
+}
+
+/* ================= CERTIFICATIONS SECTION ================= */
 
 #certifications {
   position: relative;
   height: 400px;
-  margin: 60px 0 100px;
+  margin: 120px 0 100px;   /* 👈 logo se distance badha */
   overflow: visible;
   display: flex;
   justify-content: center;
@@ -93,7 +110,7 @@ body {
   padding: 18px;
   border-radius: 18px;
   text-align: center;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.07);
   backdrop-filter: blur(18px);
   border: 1px solid rgba(255,255,255,0.1);
   transform: translate(-50%, -50%);
@@ -110,8 +127,8 @@ body {
   z-index: 5;
   filter: blur(0);
   box-shadow:
-    0 0 25px #00f5ff,
-    0 0 60px rgba(0,245,255,0.7);
+    0 0 30px #00f5ff,
+    0 0 60px rgba(0,245,255,0.8);
 }
 
 /* LEFT CARD */
@@ -189,20 +206,20 @@ body {
   color: white;
 }
 
-.arrow.left {
-  left: 10px;
-}
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
 
-.arrow.right {
-  right: 10px;
-}
-
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
 
+  .logo {
+    width: 140px;
+  }
+
   #certifications {
     height: 360px;
+    margin: 110px 0 80px;
   }
 
   .card {
@@ -220,9 +237,4 @@ body {
   .card.right {
     transform: translate(50%, -50%) scale(0.75);
   }
-
-  .logo {
-    width: 140px;
-  }
-
 }
