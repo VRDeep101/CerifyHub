@@ -12,4 +12,15 @@ const certifications = [
     pdf: "images/TUAcybersecuruty.pdf"
   }
 ];
+  {
+    title: "ITESA WebWorkshop",
+    description: " Led a Web Development Workshop for first-year students, teaching HTML, CSS, and JavaScript fundamentals, and helping them build their first structured and responsive web pages.",
+    image: "images/ItesaLogo.jpg",
+    pdf: "images/ItesaWebWorkshop.pdf"
+  }
+];
+
+
+
+
 
