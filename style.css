@@ -10,7 +10,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-    url("images/bg.jpg");
+    url("images/bg.jpg");   /* 👈 apna image path daal */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -18,32 +18,19 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO SECTION ================= */
 
 .hero {
   text-align: center;
   padding: 80px 20px 40px;
 }
 
-/* EXPLORE BLUE CYAN */
-.explore-text {
-  color: #00f5ff;
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
   text-shadow:
     0 0 12px #00f5ff,
-    0 0 35px rgba(0,245,255,0.9);
-}
-
-/* CERTIFICATION PINK */
-.certification-text {
-  color: #ff2ea6;
-  text-shadow:
-    0 0 12px #ff2ea6,
-    0 0 35px rgba(255,46,166,0.9);
-}
-
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
+    0 0 30px rgba(0,245,255,0.8);
 }
 
 .hero p {
@@ -73,7 +60,7 @@ body {
     0 0 40px rgba(255,46,166,0.7);
 }
 
-/* ================= PROFILE ================= */
+/* ================= PROFILE LOGO ================= */
 
 .logo {
   width: 170px;
@@ -81,28 +68,29 @@ body {
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  margin: 40px auto;
+  margin: 0 auto 40px;   /* 👈 niche space */
   box-shadow:
     0 0 30px #00f5ff,
     0 0 70px rgba(0,245,255,0.7);
+  transition: 0.3s ease;
 }
 
-/* ================= SLIDER ================= */
+/* ================= CERTIFICATIONS SECTION ================= */
 
 #certifications {
   position: relative;
   height: 400px;
-  margin: 80px 0 100px;
+  margin: 120px 0 100px;   /* 👈 logo se distance badha */
+  overflow: visible;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 950px;
   height: 100%;
 }
 
@@ -129,9 +117,10 @@ body {
   transition: all 0.6s cubic-bezier(.25,.8,.25,1);
   opacity: 0;
   filter: blur(4px);
-  z-index: 1;
+  box-shadow: 0 0 15px rgba(0,245,255,0.3);
 }
 
+/* CENTER CARD */
 .card.center {
   transform: translate(-50%, -50%) scale(1.15);
   opacity: 1;
@@ -142,17 +131,28 @@ body {
     0 0 60px rgba(0,245,255,0.8);
 }
 
+/* LEFT CARD */
 .card.left {
-  transform: translate(-170%, -50%) scale(0.85);
+  transform: translate(-170%, -50%) scale(0.8);
   opacity: 0.6;
   z-index: 3;
 }
 
+/* RIGHT CARD */
 .card.right {
-  transform: translate(70%, -50%) scale(0.85);
+  transform: translate(70%, -50%) scale(0.8);
   opacity: 0.6;
   z-index: 3;
 }
+
+/* HIDDEN */
+.card.hidden {
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  z-index: 1;
+}
+
+/* CARD CONTENT */
 
 .card img {
   width: 100%;
@@ -169,6 +169,20 @@ body {
   font-size: 14px;
   opacity: 0.85;
   margin-bottom: 10px;
+}
+
+.card button {
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #00f5ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  background: #ff2ea6;
+  color: white;
 }
 
 /* ================= ARROWS ================= */
@@ -192,6 +206,9 @@ body {
   color: white;
 }
 
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
@@ -202,6 +219,7 @@ body {
 
   #certifications {
     height: 360px;
+    margin: 110px 0 80px;
   }
 
   .card {
@@ -213,10 +231,10 @@ body {
   }
 
   .card.left {
-    transform: translate(-150%, -50%) scale(0.8);
+    transform: translate(-150%, -50%) scale(0.75);
   }
 
   .card.right {
-    transform: translate(50%, -50%) scale(0.8);
+    transform: translate(50%, -50%) scale(0.75);
   }
 }
