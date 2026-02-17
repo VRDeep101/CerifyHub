@@ -8,33 +8,30 @@
 </head>
 <body>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section id="hero">
-    <div class="hero-left">
-      <h1>
-        <span class="explore">Explore</span> 
-        <span class="certification">Certification</span>
-      </h1>
-      <p>Over 50+ workshops attended and conducted. Boost your skills with hands-on projects!</p>
-      <button id="exploreBtn">Explore Certificates</button>
-    </div>
-    <div class="hero-right">
-      <img src="images/Logo.png" alt="Logo" class="logo">
-    </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>
+      <span class="explore">EXPLORE</span> 
+      <span class="certify">CERTIFY</span><span class="hub">HUB</span>
+    </h1>
+    <p>Over 50+ Webinar & Masterclass Conducted / Attended</p>
+    <button id="exploreBtn">Explore Now</button>
+    <img class="logo" src="images/Logo.png" alt="Logo">
   </section>
 
-  <!-- ================= CERTIFICATES SECTION ================= -->
+  <!-- CARDS SECTION -->
   <section id="certifications">
     <div class="carousel-container">
       <button class="arrow left">&#10094;</button>
       <div class="carousel-track" id="cardsContainer">
-        <!-- Cards will be injected dynamically from data.js -->
+        <!-- Cards generated via JS -->
       </div>
       <button class="arrow right">&#10095;</button>
     </div>
   </section>
 
+  <!-- JS -->
   <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
