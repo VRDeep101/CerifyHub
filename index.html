@@ -3,35 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certify Hub</title>
+  <title>CertifyHub</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HERO SECTION -->
+  <!-- ================= HERO SECTION ================= -->
   <section id="hero">
     <div class="hero-left">
       <h1>
-        <span class="certify">Certify</span> <span class="hub">Hub</span>
+        <span class="explore">Explore</span> 
+        <span class="certification">Certification</span>
       </h1>
-      <p>Over 50+ Webinar & Masterclass Conducted/Attended</p>
-      <button id="exploreBtn">Explore Now</button>
+      <p>Over 50+ workshops attended and conducted. Boost your skills with hands-on projects!</p>
+      <button id="exploreBtn">Explore Certificates</button>
     </div>
     <div class="hero-right">
-      <img class="logo" src="images/Logo.png" alt="Logo">
+      <img src="images/Logo.png" alt="Logo" class="logo">
     </div>
   </section>
 
-  <!-- CAROUSEL SECTION -->
+  <!-- ================= CERTIFICATES SECTION ================= -->
   <section id="certifications">
     <div class="carousel-container">
       <button class="arrow left">&#10094;</button>
-      <div class="carousel-track"></div>
+      <div class="carousel-track" id="cardsContainer">
+        <!-- Cards will be injected dynamically from data.js -->
+      </div>
       <button class="arrow right">&#10095;</button>
     </div>
   </section>
 
   <script src="data.js"></script>
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
