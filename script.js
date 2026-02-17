@@ -2,8 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const exploreBtn = document.getElementById("exploreBtn");
   const cardsContainer = document.getElementById("cardsContainer");
+  const sliderSection = document.querySelector(".slider-section");
+  const leftArrow = document.querySelector(".arrow.left");
+  const rightArrow = document.querySelector(".arrow.right");
 
-  // Certifications data
+  // Certificate data
   const certifications = [
     {
       title: "Be10x AI Masterclass",
@@ -23,69 +26,46 @@ document.addEventListener("DOMContentLoaded", function () {
       image: "images/certificate3.png",
       pdf: "images/certificate3.pdf"
     }
-    // Add more certifications here
   ];
 
-  // 1️⃣ Explore button click: generate cards and scroll
-  exploreBtn.addEventListener("click", function () {
-
-    if (!cardsContainer.classList.contains("show")) {
-
-      // Clear old cards
-      cardsContainer.innerHTML = "";
-
-      // Generate cards
-      certifications.forEach(function (cert) {
-        const card = document.createElement("div");
-        card.classList.add("card");
-
-        card.innerHTML = `
-          <img src="${cert.image}" alt="${cert.title}">
-          <h3>${cert.title}</h3>
-          <p>${cert.description}</p>
-          <button onclick="window.open('${cert.pdf}', '_blank')">View Certificate</button>
-        `;
-
-        cardsContainer.appendChild(card);
-      });
-
-      // Show container with animation
-      cardsContainer.classList.add("show");
-
-      // Scroll smoothly to cards
-      setTimeout(() => {
-        cardsContainer.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-
-      // 2️⃣ Optional: horizontal scroll arrows
-      addSliderArrows();
-    }
+  // Generate cards
+  certifications.forEach(cert => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
+      <img src="${cert.image}" alt="${cert.title}">
+      <h3>${cert.title}</h3>
+      <p>${cert.description}</p>
+      <button onclick="window.open('${cert.pdf}','_blank')">View Certificate</button>
+    `;
+    cardsContainer.appendChild(card);
   });
 
-  // Function to add left/right arrows for sliding
-  function addSliderArrows() {
-    // Avoid adding arrows multiple times
-    if (document.querySelector(".arrow")) return;
-
-    const leftArrow = document.createElement("button");
-    leftArrow.classList.add("arrow", "left");
-    leftArrow.innerHTML = "&#10094;"; // left arrow
-    cardsContainer.parentElement.appendChild(leftArrow);
-
-    const rightArrow = document.createElement("button");
-    rightArrow.classList.add("arrow", "right");
-    rightArrow.innerHTML = "&#10095;"; // right arrow
-    cardsContainer.parentElement.appendChild(rightArrow);
-
-    const scrollStep = 300; // pixels to move per click
-
-    leftArrow.addEventListener("click", () => {
-      cardsContainer.scrollBy({ left: -scrollStep, behavior: "smooth" });
+  // Slider logic
+  let currentIndex = 0;
+  const cards = document.querySelectorAll("#cardsContainer .card");
+  function updateSlider() {
+    cards.forEach((c,i)=>{
+      c.classList.remove("active");
+      if(i===currentIndex) c.classList.add("active");
     });
-
-    rightArrow.addEventListener("click", () => {
-      cardsContainer.scrollBy({ left: scrollStep, behavior: "smooth" });
-    });
+    cards[currentIndex].scrollIntoView({behavior:"smooth", inline:"center"});
   }
+  updateSlider();
+
+  leftArrow.addEventListener("click", ()=>{
+    currentIndex = (currentIndex-1+cards.length)%cards.length;
+    updateSlider();
+  });
+
+  rightArrow.addEventListener("click", ()=>{
+    currentIndex = (currentIndex+1)%cards.length;
+    updateSlider();
+  });
+
+  // Explore scroll
+  exploreBtn.addEventListener("click", ()=>{
+    sliderSection.scrollIntoView({behavior:"smooth"});
+  });
 
 });
