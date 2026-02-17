@@ -1,72 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
+ const slider = document.getElementById("slider");
+let current = 0;
 
-  const exploreBtn = document.getElementById("exploreBtn");
-  const cardsContainer = document.getElementById("cardsContainer");
-  const leftArrow = document.querySelector(".arrow.left");
-  const rightArrow = document.querySelector(".arrow.right");
+function createCards() {
+  slider.innerHTML = "";
 
-  let currentIndex = 0;
+  certifications.forEach((cert, index) => {
 
-  // Load cards
-  certifications.forEach((cert) => {
     const card = document.createElement("div");
     card.classList.add("card");
+
+    if(index === current) card.classList.add("center");
+    else if(index === (current - 1 + certifications.length) % certifications.length)
+      card.classList.add("left");
+    else if(index === (current + 1) % certifications.length)
+      card.classList.add("right");
+
     card.innerHTML = `
-      <img src="${cert.image}" alt="${cert.title}">
+      <img src="${cert.image}">
       <h3>${cert.title}</h3>
       <p>${cert.description}</p>
-      <button onclick="window.open('${cert.pdf}', '_blank')">
+      <button class="view-btn" onclick="window.open('${cert.pdf}')">
         View Certificate
       </button>
     `;
-    cardsContainer.appendChild(card);
+
+    slider.appendChild(card);
   });
+}
 
-  const cards = document.querySelectorAll(".card");
+document.querySelector(".left").onclick = () => {
+  current = (current - 1 + certifications.length) % certifications.length;
+  createCards();
+};
 
-  function updateCarousel() {
+document.querySelector(".right").onclick = () => {
+  current = (current + 1) % certifications.length;
+  createCards();
+};
 
-    cards.forEach(card => {
-      card.classList.remove("center","left","right","hidden");
-    });
+function scrollToCerts() {
+  document.getElementById("certifications")
+    .scrollIntoView({ behavior: "smooth" });
+}
 
-    const total = cards.length;
-
-    const center = currentIndex;
-    const left = (currentIndex - 1 + total) % total;
-    const right = (currentIndex + 1) % total;
-
-    cards.forEach((card, index) => {
-      if(index === center) {
-        card.classList.add("center");
-      } 
-      else if(index === left) {
-        card.classList.add("left");
-      }
-      else if(index === right) {
-        card.classList.add("right");
-      }
-      else {
-        card.classList.add("hidden");
-      }
-    });
-  }
-
-  rightArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCarousel();
-  });
-
-  leftArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCarousel();
-  });
-
-  exploreBtn.addEventListener("click", () => {
-    document.getElementById("certifications")
-      .scrollIntoView({ behavior: "smooth" });
-  });
-
-  updateCarousel();
-
-});
+createCards();
