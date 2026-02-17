@@ -1,34 +1,88 @@
-const slider = document.getElementById("slider");
-const exploreBtn = document.getElementById("exploreBtn");
-let current = 0;
-let initialized = false;
+// =================== JS: script.js ===================
+document.addEventListener("DOMContentLoaded", function () {
 
-function createCards(){
-  slider.innerHTML = "";
-  certifications.forEach((cert,index)=>{
-    const card=document.createElement("div");
-    card.classList.add("card");
-    if(index===current) card.classList.add("center");
-    else if(index===(current-1+certifications.length)%certifications.length) card.classList.add("left");
-    else if(index===(current+1)%certifications.length) card.classList.add("right");
-    else card.classList.add("hidden");
+  const exploreBtn = document.getElementById("exploreBtn");
+  const carouselTrack = document.querySelector(".carousel-track");
+  const leftArrow = document.querySelector(".arrow.left");
+  const rightArrow = document.querySelector(".arrow.right");
 
-    card.innerHTML=`<img src="${cert.image}"><h3>${cert.title}</h3><p>${cert.description}</p>
-    <button onclick="window.open('${cert.pdf}')">View Certificate</button>`;
+  let currentIndex = 0;
+  let autoLoop;
 
-    slider.appendChild(card);
+  // Render cards dynamically
+  function renderCards() {
+    carouselTrack.innerHTML = "";
+
+    certifications.forEach((cert, index) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      // Assign positions
+      if (index === currentIndex) card.classList.add("center");
+      else if (index === (currentIndex - 1 + certifications.length) % certifications.length) card.classList.add("left");
+      else if (index === (currentIndex + 1) % certifications.length) card.classList.add("right");
+      else card.classList.add("hidden");
+
+      card.innerHTML = `
+        <img src="${cert.image}" alt="${cert.title}">
+        <h3>${cert.title}</h3>
+        <p>${cert.description}</p>
+        ${cert.pdf ? `<button onclick="window.open('${cert.pdf}', '_blank')">View Certificate</button>` : ''}
+      `;
+
+      carouselTrack.appendChild(card);
+    });
+  }
+
+  // Initial render
+  renderCards();
+
+  // =================== Explore Button ===================
+  exploreBtn.addEventListener("click", () => {
+    carouselTrack.scrollIntoView({ behavior: "smooth" });
   });
-}
 
-function leftClick(){current=(current-1+certifications.length)%certifications.length; createCards();}
-function rightClick(){current=(current+1)%certifications.length; createCards();}
+  // =================== Arrow Navigation ===================
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % certifications.length;
+    renderCards();
+  }
 
-exploreBtn.addEventListener("click",()=>{
-  if(!initialized){createCards(); initialized=true;}
-  document.getElementById("certifications").scrollIntoView({behavior:"smooth"});
-});
+  function prevCard() {
+    currentIndex = (currentIndex - 1 + certifications.length) % certifications.length;
+    renderCards();
+  }
 
-document.addEventListener("DOMContentLoaded",()=>{
-  document.querySelector(".nav.left").onclick=leftClick;
-  document.querySelector(".nav.right").onclick=rightClick;
+  rightArrow.addEventListener("click", nextCard);
+  leftArrow.addEventListener("click", prevCard);
+
+  // =================== Keyboard Navigation ===================
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") prevCard();
+    if (e.key === "ArrowRight") nextCard();
+  });
+
+  // =================== Click Side Card ===================
+  carouselTrack.addEventListener("click", (e) => {
+    const clickedCard = e.target.closest(".card");
+    if (!clickedCard) return;
+    const cards = Array.from(carouselTrack.children);
+    const index = cards.indexOf(clickedCard);
+    currentIndex = index;
+    renderCards();
+  });
+
+  // =================== Auto Loop ===================
+  function startAutoLoop() {
+    autoLoop = setInterval(nextCard, 8000);
+  }
+
+  function stopAutoLoop() {
+    clearInterval(autoLoop);
+  }
+
+  carouselTrack.addEventListener("mouseenter", stopAutoLoop);
+  carouselTrack.addEventListener("mouseleave", startAutoLoop);
+
+  startAutoLoop();
 });
