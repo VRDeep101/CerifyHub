@@ -6,11 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const rightArrow = document.querySelector(".arrow.right");
 
   let currentIndex = 0;
+  let autoRotate;
 
-  // Load cards
+  // ================= LOAD CARDS =================
   certifications.forEach((cert) => {
     const card = document.createElement("div");
     card.classList.add("card");
+
     card.innerHTML = `
       <img src="${cert.image}" alt="${cert.title}">
       <h3>${cert.title}</h3>
@@ -19,27 +21,29 @@ document.addEventListener("DOMContentLoaded", function () {
         View Certificate
       </button>
     `;
+
     cardsContainer.appendChild(card);
   });
 
   const cards = document.querySelectorAll(".card");
+  const total = cards.length;
 
+  // ================= UPDATE POSITIONS =================
   function updateCarousel() {
 
     cards.forEach(card => {
       card.classList.remove("center","left","right","hidden");
     });
 
-    const total = cards.length;
-
     const center = currentIndex;
     const left = (currentIndex - 1 + total) % total;
     const right = (currentIndex + 1) % total;
 
     cards.forEach((card, index) => {
+
       if(index === center) {
         card.classList.add("center");
-      } 
+      }
       else if(index === left) {
         card.classList.add("left");
       }
@@ -49,19 +53,75 @@ document.addEventListener("DOMContentLoaded", function () {
       else {
         card.classList.add("hidden");
       }
+
     });
   }
 
-  rightArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % cards.length;
+  // ================= ARROWS =================
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % total;
     updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateCarousel();
+  }
+
+  rightArrow.addEventListener("click", () => {
+    nextSlide();
+    resetAuto();
   });
 
   leftArrow.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCarousel();
+    prevSlide();
+    resetAuto();
   });
 
+  // ================= AUTO ROTATE =================
+  function startAuto() {
+    autoRotate = setInterval(() => {
+      nextSlide();
+    }, 3000);
+  }
+
+  function resetAuto() {
+    clearInterval(autoRotate);
+    startAuto();
+  }
+
+  startAuto();
+
+  // ================= CLICK CARD TO CENTER =================
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+      currentIndex = index;
+      updateCarousel();
+      resetAuto();
+    });
+  });
+
+  // ================= MOBILE SWIPE =================
+  let startX = 0;
+
+  cardsContainer.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  cardsContainer.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+
+    if(startX - endX > 50) {
+      nextSlide();
+      resetAuto();
+    }
+    else if(endX - startX > 50) {
+      prevSlide();
+      resetAuto();
+    }
+  });
+
+  // ================= EXPLORE BUTTON =================
   exploreBtn.addEventListener("click", () => {
     document.getElementById("certifications")
       .scrollIntoView({ behavior: "smooth" });
