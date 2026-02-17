@@ -10,7 +10,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-    url("images/bg.jpg");   /* 👈 apna image path daal */
+    url("images/bg.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -20,22 +20,33 @@ body {
 
 /* ================= HERO SECTION ================= */
 
-.hero {
-  text-align: center;
-  padding: 80px 20px 40px;
+.hero-section {
+  padding: 80px 8%;
 }
 
-.hero h1 {
-  font-size: 30px;
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.text-area {
+  flex: 1;
+}
+
+.text-area h1 {
+  font-size: 42px;
   margin-bottom: 10px;
   text-shadow:
     0 0 12px #00f5ff,
     0 0 30px rgba(0,245,255,0.8);
 }
 
-.hero p {
-  opacity: 0.85;
+.text-area p {
+  font-size: 18px;
   margin-bottom: 20px;
+  opacity: 0.85;
 }
 
 #exploreBtn {
@@ -60,31 +71,34 @@ body {
     0 0 40px rgba(255,46,166,0.7);
 }
 
-/* ================= PROFILE LOGO ================= */
+/* ================= LOGO ================= */
+
+.logo-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
 .logo {
-  width: 170px;
+  width: 260px;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 50%;
-  display: block;
-  margin: 0 auto 40px;   /* 👈 niche space */
   box-shadow:
-    0 0 30px #00f5ff,
-    0 0 70px rgba(0,245,255,0.7);
-  transition: 0.3s ease;
+    0 0 40px #00f5ff,
+    0 0 80px rgba(0,245,255,0.7);
 }
 
-/* ================= CERTIFICATIONS SECTION ================= */
+/* ================= CERTIFICATIONS ================= */
 
 #certifications {
   position: relative;
-  height: 400px;
-  margin: 120px 0 100px;   /* 👈 logo se distance badha */
-  overflow: visible;
+  height: 420px;
+  margin: 80px 0 120px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: visible;
 }
 
 .carousel-container {
@@ -120,7 +134,6 @@ body {
   box-shadow: 0 0 15px rgba(0,245,255,0.3);
 }
 
-/* CENTER CARD */
 .card.center {
   transform: translate(-50%, -50%) scale(1.15);
   opacity: 1;
@@ -131,28 +144,22 @@ body {
     0 0 60px rgba(0,245,255,0.8);
 }
 
-/* LEFT CARD */
 .card.left {
   transform: translate(-170%, -50%) scale(0.8);
   opacity: 0.6;
   z-index: 3;
 }
 
-/* RIGHT CARD */
 .card.right {
   transform: translate(70%, -50%) scale(0.8);
   opacity: 0.6;
   z-index: 3;
 }
 
-/* HIDDEN */
 .card.hidden {
-  transform: translate(-50%, -50%) scale(0.6);
   opacity: 0;
   z-index: 1;
 }
-
-/* CARD CONTENT */
 
 .card img {
   width: 100%;
@@ -213,13 +220,27 @@ body {
 
 @media (max-width: 768px) {
 
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-area h1 {
+    font-size: 28px;
+  }
+
+  .text-area p {
+    font-size: 15px;
+  }
+
   .logo {
-    width: 140px;
+    width: 160px;
+    margin-top: 20px;
   }
 
   #certifications {
     height: 360px;
-    margin: 110px 0 80px;
+    margin-top: 60px;
   }
 
   .card {
