@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const exploreBtn = document.getElementById("exploreBtn");
   const cardsContainer = document.getElementById("cardsContainer");
-
   const leftArrow = document.querySelector(".arrow.left");
   const rightArrow = document.querySelector(".arrow.right");
 
   let currentIndex = 0;
 
-  // Load Cards
+  // Load cards
   function loadCards() {
     cardsContainer.innerHTML = "";
     certifications.forEach(cert=>{
@@ -22,12 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
       cardsContainer.appendChild(card);
     });
   }
-
   loadCards();
 
   function updateSlider() {
     const cardWidth = cardsContainer.querySelector(".card").offsetWidth;
-    const gap = 32; // CSS gap
+    const gap = 32; // gap between cards
     cardsContainer.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
   }
 
