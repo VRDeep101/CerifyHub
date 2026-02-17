@@ -2,41 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CertifyHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <div id="hero">
-    <div class="hero-left">
-      <h1>
-        <span class="explore">EXPLORE</span><br>
-        <span class="certification">CERTIFICATION</span>
-      </h1>
-      <p>Over 50+ Webinar & Masterclass Conducted/Attended</p>
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero-section">
+
+  <div class="hero-content">
+
+    <!-- LEFT TEXT AREA -->
+    <div class="text-area">
+      <h1>EXPLORE CERTIFICATION</h1>
+      <p>Over 50+ Webinar & Masterclass Conducted / Attended</p>
       <button id="exploreBtn">Explore Now</button>
     </div>
-    <div class="hero-right">
-      <img class="logo" src="images/Logo.png" alt="Logo">
+
+    <!-- RIGHT LOGO AREA -->
+    <div class="logo-area">
+      <img src="images/profile.jpg" alt="Profile" class="logo">
     </div>
+
   </div>
 
-  <!-- CAROUSEL SECTION -->
-  <section id="certifications">
-    <div class="carousel-container">
-      <button class="arrow left">&#10094;</button>
-      <div class="carousel-track" id="cardsContainer">
-        <!-- Cards loaded from JS -->
-      </div>
-      <button class="arrow right">&#10095;</button>
+</section>
+
+
+<!-- ================= CERTIFICATIONS SLIDER ================= -->
+
+<section id="certifications">
+
+  <div class="carousel-container">
+
+    <button class="arrow left">&#10094;</button>
+
+    <div class="carousel-track" id="cardsContainer">
+      <!-- JS will inject cards here -->
     </div>
-  </section>
 
-  <!-- JS -->
-  <script src="data.js"></script>
-  <script src="script.js" defer></script>
+    <button class="arrow right">&#10095;</button>
 
+  </div>
+
+</section>
+
+
+<script src="script.js"></script>
 </body>
 </html>
