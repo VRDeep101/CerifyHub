@@ -12,12 +12,19 @@ const certifications = [
     pdf: "images/TUAcybersecuruty.pdf"
   },
   {
-    title: "Be10X AI Masterclass",
-    description: "Completed the Be10X AI Workshop, learned 15+ AI tools focused on productivity, workflow, and automation.",
-    image: "images/be10x.jpg",
-    pdf: "images/be10X.pdf"
-  }
+  title: "Yuno Python",
+  description: "Learned Python programming fundamentals and practical applications.",
+  image: "images/Yunopython.png",
+  pdf: "images/Yunopython.pdf"
+  }, 
+{
+  title: "Be10X AI Tools Masterclass",
+  description: "Attended masterclass to learn and apply AI tools effectively.",
+  image: "images/be10x.jpg",
+  pdf: "images/be10X.pdf"
+}
 ];
+
 
 
 
