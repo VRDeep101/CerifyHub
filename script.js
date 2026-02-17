@@ -1,29 +1,62 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+
   const exploreBtn = document.getElementById("exploreBtn");
   const cardsContainer = document.getElementById("cardsContainer");
 
-  exploreBtn.addEventListener("click", function () {
-    if (!cardsContainer.classList.contains("show")) {
-      // clear previous cards
-      cardsContainer.innerHTML = "";
+  if (!exploreBtn || !cardsContainer) return;
 
-      certifications.forEach(function (cert) {
-        const card = document.createElement("div");
-        card.classList.add("card");
+  exploreBtn.addEventListener("click", () => {
 
-        card.innerHTML = `
-          <img src="${cert.image}" alt="${cert.title}">
-          <h3>${cert.title}</h3>
-          <p>${cert.description}</p>
-          <button onclick="window.open('${cert.pdf}', '_blank')">View Certificate</button>
-        `;
-        cardsContainer.appendChild(card);
+    // Agar already show ho chuka hai to dobara load na kare
+    if (cardsContainer.classList.contains("show")) return;
+
+    // Clear previous cards (safety)
+    cardsContainer.innerHTML = "";
+
+    // Check if certifications data exists
+    if (typeof certifications === "undefined" || !Array.isArray(certifications)) {
+      console.error("Certifications data not found!");
+      return;
+    }
+
+    // Create cards dynamically
+    certifications.forEach(cert => {
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const img = document.createElement("img");
+      img.src = cert.image;
+      img.alt = cert.title;
+
+      const title = document.createElement("h3");
+      title.textContent = cert.title;
+
+      const desc = document.createElement("p");
+      desc.textContent = cert.description;
+
+      const btn = document.createElement("button");
+      btn.textContent = "View Certificate";
+      btn.addEventListener("click", () => {
+        window.open(cert.pdf, "_blank");
       });
 
-      cardsContainer.classList.add("show");
-      setTimeout(() => {
-        cardsContainer.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
+      card.appendChild(img);
+      card.appendChild(title);
+      card.appendChild(desc);
+      card.appendChild(btn);
+
+      cardsContainer.appendChild(card);
+    });
+
+    // Show animation class
+    cardsContainer.classList.add("show");
+
+    // Smooth scroll
+    setTimeout(() => {
+      cardsContainer.scrollIntoView({ behavior: "smooth" });
+    }, 150);
+
   });
+
 });
