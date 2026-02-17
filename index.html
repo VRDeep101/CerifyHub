@@ -3,72 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>CertifyHub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ================= HERO SECTION ================= -->
+<div class="background"></div>
 
 <section class="hero">
+  <div class="logo-glow">
+    <img src="images/Logo.png" class="main-logo">
+  </div>
 
-  <h1>
-    <span class="explore-text">EXPLORE</span>
-    <span class="certification-text"> CERTIFICATION</span>
-  </h1>
+  <h1>Certify<span>Hub</span></h1>
+  <p class="subtitle">50+ Masterclasses Attended & Conducted</p>
 
-  <p>Over 50+ Webinar & Masterclass Conducted / Attended</p>
-
-  <button id="exploreBtn">Explore Now</button>
-
-  <!-- PROFILE IMAGE -->
-  <img src="images/profile.jpg" alt="Profile" class="logo">
-
+  <button class="explore-btn" onclick="scrollToCerts()">
+    Explore Certifications
+  </button>
 </section>
 
+<section class="cert-section" id="certifications">
 
-<!-- ================= CERTIFICATIONS SLIDER ================= -->
+  <div class="slider-container">
+    <button class="nav left">&#10094;</button>
 
-<section id="certifications">
+    <div class="slider" id="slider"></div>
 
-  <div class="carousel-container">
-
-    <!-- LEFT ARROW -->
-    <button class="arrow left">&#10094;</button>
-
-    <!-- CARDS WRAPPER -->
-    <div class="carousel-track" id="cardsContainer">
-
-      <div class="card center">
-        <img src="images/cert1.jpg" alt="">
-        <h3>Web Development</h3>
-        <p>Frontend Masterclass</p>
-      </div>
-
-      <div class="card right">
-        <img src="images/cert2.jpg" alt="">
-        <h3>AI Workshop</h3>
-        <p>AI & Automation</p>
-      </div>
-
-      <div class="card left">
-        <img src="images/cert3.jpg" alt="">
-        <h3>Cyber Security</h3>
-        <p>Ethical Hacking</p>
-      </div>
-
-    </div>
-
-    <!-- RIGHT ARROW -->
-    <button class="arrow right">&#10095;</button>
-
+    <button class="nav right">&#10095;</button>
   </div>
 
 </section>
 
+<script src="data.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
