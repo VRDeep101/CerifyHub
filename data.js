@@ -17,6 +17,12 @@ const certifications = [
     image: "images/Yunopython.png",
     pdf: "images/Yunopython.pdf"
   }, 
+    {
+    title: "VC Ethical Hacking",
+    description: "Completed practical training in cybersecurity and ethical hacking using Kali Linux.",
+    image: "images/Yunopython.png",
+    pdf: "images/Yunopython.pdf"
+  }, 
   {
     title: "Be10X AI Tools Masterclass",
     description: "Attended masterclass to learn and apply AI tools effectively.",
@@ -24,3 +30,4 @@ const certifications = [
     pdf: "images/be10X.pdf"
   }
 ];
+
